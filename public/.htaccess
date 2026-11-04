@@ -1,0 +1,9 @@
+Options -Multiviews
+RewriteEngine On
+
+# Jangan rewrite jika file atau folder fisik memang ada di public/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Arahkan semua request URL ke index.php dengan parameter 'url'
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
